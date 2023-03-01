@@ -18,7 +18,9 @@ public abstract class MwmJobIntentService extends JobIntentService
   {
     return getClass().getSimpleName();
   }
-
+  static void enqueueWork(Context context, Intent intent) {
+    enqueueWork(context, MwmJobIntentService.class, JOB_ID, intent);
+  }
   protected abstract void onHandleWorkInitialized(@NonNull Intent intent);
 
   @Override
